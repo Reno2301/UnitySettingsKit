@@ -91,6 +91,8 @@ public class SettingsManager : MonoBehaviour
         qualityDropdown.value = 2;
         fullscreenToggle.isOn = true;
 
+        PlayerPrefs.DeleteAll();
+
         // Apply default settings
         ApplySettings();
     }
@@ -114,5 +116,14 @@ public class SettingsManager : MonoBehaviour
     {
         Resolution[] resolutions = Screen.resolutions;
         return GetCurrentResolutionIndex(resolutions);
+    }
+
+    public void ApplySettingsButtonPressed()
+    {
+        // Pas de instellingen toe op de game
+        ApplySettings();
+
+        // Laat de gebruiker weten dat de instellingen zijn toegepast
+        Debug.Log("Settings Applied!");
     }
 }
